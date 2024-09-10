@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cuppons",
+  "info": {
+    "singularName": "cuppon",
+    "pluralName": "cuppons",
+    "displayName": "Cuppon"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "discount": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
