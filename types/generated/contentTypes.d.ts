@@ -872,12 +872,8 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     company: Attribute.String;
     order_status: Attribute.Enumeration<['pending', 'delivered']> &
       Attribute.DefaultTo<'pending'>;
-    order_items: Attribute.Relation<
-      'api::order.order',
-      'oneToMany',
-      'api::order-item.order-item'
-    >;
     note: Attribute.Text;
+    items: Attribute.Component<'order.order-items', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -888,47 +884,6 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::order.order',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiOrderItemOrderItem extends Schema.CollectionType {
-  collectionName: 'order_items';
-  info: {
-    singularName: 'order-item';
-    pluralName: 'order-items';
-    displayName: 'Order item';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    quantity: Attribute.Integer & Attribute.Required;
-    product: Attribute.Relation<
-      'api::order-item.order-item',
-      'oneToOne',
-      'api::product.product'
-    >;
-    order: Attribute.Relation<
-      'api::order-item.order-item',
-      'manyToOne',
-      'api::order.order'
-    >;
-    weigth: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::order-item.order-item',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::order-item.order-item',
       'oneToOne',
       'admin::user'
     > &
@@ -1042,7 +997,6 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::cuppon.cuppon': ApiCupponCuppon;
       'api::order.order': ApiOrderOrder;
-      'api::order-item.order-item': ApiOrderItemOrderItem;
       'api::product.product': ApiProductProduct;
       'api::weigth.weigth': ApiWeigthWeigth;
     }

@@ -43,14 +43,13 @@
       ],
       "default": "pending"
     },
-    "order_items": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::order-item.order-item",
-      "mappedBy": "order"
-    },
     "note": {
       "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "order.order-items"
     }
   }
 }

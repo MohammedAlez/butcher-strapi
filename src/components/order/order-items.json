@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_order_order_items",
+  "info": {
+    "displayName": "order_items",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "weigth": {
+      "type": "string"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "quantity": {
+      "type": "integer"
+    }
+  }
+}
