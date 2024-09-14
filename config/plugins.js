@@ -1,18 +1,19 @@
 module.exports = ({ env }) => ({
-    upload: {
-        config: {
-        provider: 'cloudinary',
-        providerOptions: {
-            cloud_name: env('CLOUDINARY_NAME'),
-            api_key: env('CLOUDINARY_KEY'),
-            api_secret: env('CLOUDINARY_SECRET'),
-        },
-        actionOptions: {
-            upload: {},
-            delete: {},
-        },
-        },
-    },
+    // this configuration is for cloudinary upload provider, if you want to use it uncomment the next code with code in the ./middelware.js
+    // upload: {
+    //     config: {
+    //     provider: 'cloudinary',
+    //     providerOptions: {
+    //         cloud_name: env('CLOUDINARY_NAME'),
+    //         api_key: env('CLOUDINARY_KEY'),
+    //         api_secret: env('CLOUDINARY_SECRET'),
+    //     },
+    //     actionOptions: {
+    //         upload: {},
+    //         delete: {},
+    //     },
+    //     },
+    // },
     email: {
         config: {
             provider: 'nodemailer',

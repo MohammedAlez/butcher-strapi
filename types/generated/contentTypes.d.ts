@@ -852,6 +852,39 @@ export interface ApiCupponCuppon extends Schema.CollectionType {
   };
 }
 
+export interface ApiHomePageSlideHomePageSlide extends Schema.SingleType {
+  collectionName: 'home_page_slides';
+  info: {
+    singularName: 'home-page-slide';
+    pluralName: 'home-page-slides';
+    displayName: 'home_page_slide';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slides: Attribute.Component<'website-information.slides', true>;
+    first_title: Attribute.Text & Attribute.Required;
+    second_title: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page-slide.home-page-slide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page-slide.home-page-slide',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOrderOrder extends Schema.CollectionType {
   collectionName: 'orders';
   info: {
@@ -996,6 +1029,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
       'api::cuppon.cuppon': ApiCupponCuppon;
+      'api::home-page-slide.home-page-slide': ApiHomePageSlideHomePageSlide;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::weigth.weigth': ApiWeigthWeigth;

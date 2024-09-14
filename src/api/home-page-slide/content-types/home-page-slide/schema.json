@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_page_slides",
+  "info": {
+    "singularName": "home-page-slide",
+    "pluralName": "home-page-slides",
+    "displayName": "home_page_slide",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slides": {
+      "displayName": "slides",
+      "type": "component",
+      "repeatable": true,
+      "component": "website-information.slides"
+    },
+    "first_title": {
+      "type": "text",
+      "required": true
+    },
+    "second_title": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_website_information_slides",
+  "info": {
+    "displayName": "slides",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
